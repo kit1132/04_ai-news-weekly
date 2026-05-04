@@ -1,23 +1,44 @@
-# 04_ai-news-weekly
+# AI News Weekly Digest
 
-3リポ横断の AI ニュース週次サマリー集約リポジトリ。
+3 リポ横断の AI ニュースを毎週日曜に集約し、日本語週次ダイジェストとして配信するシステム。
 
-## 概要
-- 入力: `kit1132/01_ai-news-master`, `kit1132/02_ai-news-copilot`, `kit1132/03_ai-news-industry` の `digests/{YYYY}/{MM}/ai-news-YYYY-MM-DD.md` 直近7日分
-- 出力: 本リポジトリの `weekly/{YYYY}/week-W{NN}.md`
-- 実行: Claude Code Web Routines（毎週日曜 09:00 JST）
-- デリバリ: `claude/weekly-summary-YYYY-WNN` ブランチ → Draft PR
+## 仕組み
 
-## ディレクトリ
-- `weekly/{YYYY}/week-W{NN}.md` — 週次サマリー出力
-- `.claude/commands/weekly-summary.md` — 週次生成スラッシュコマンド
-- `docs/routines-setup.md` — Routines 設定手順
+- Claude Code on the web の Routines で毎週日曜 9:00 (JST) に実行
+- 入力 3 リポの `digests/{YYYY}/{MM}/ai-news-YYYY-MM-DD.md` 直近 7 日分を読み取り
+- カテゴリ別に統合・重複排除した Markdown 週次ダイジェストを `digests/{YYYY}/{MM}/ai-news-YYYY-MM-DD.md`（実行日の日曜日付）に生成
+- `claude/weekly-summary-YYYY-WNN` ブランチで Draft PR として提出
+- マージ後、GitHub Pages で `index.html` 経由で閲覧可能
 
-## 関連リポジトリ
-- [01_ai-news-master](https://github.com/kit1132/01_ai-news-master) — 入力源（master）
-- [02_ai-news-copilot](https://github.com/kit1132/02_ai-news-copilot) — 入力源（copilot）
-- [03_ai-news-industry](https://github.com/kit1132/03_ai-news-industry) — 入力源（industry）
+## ビューア
+
+`index.html` を GitHub Pages で公開してダイジェスト一覧を閲覧する。`files.json` がダイジェストの一覧を保持し、生成のたびに先頭に追加される。
+
+## 入力リポジトリ
+
+- [kit1132/01_ai-news-master](https://github.com/kit1132/01_ai-news-master) — タグ `[master]`
+- [kit1132/02_ai-news-copilot](https://github.com/kit1132/02_ai-news-copilot) — タグ `[copilot]`
+- [kit1132/03_ai-news-industry](https://github.com/kit1132/03_ai-news-industry) — タグ `[industry]`
 
 ## 不変条件
-- 入力リポジトリ（01〜03）の `digests/` 配下を変更しない
-- 既存の週次ファイル（`weekly/...`）は上書きしない
+
+- 入力 3 リポの `digests/` 配下を変更しない（読み取りのみ）
+- 既存週次ファイルは上書きしない（スキップ通知）
+- 7 日全欠損時は生成中止（空 PR を作らない）
+
+## セットアップ手順
+
+1. このリポジトリを Fork、または直接利用
+2. GitHub Pages を有効化（Settings > Pages > Source: `main`, `/ (root)`）
+3. Claude Code on the web で Routines を作成（詳細は `CLAUDE.md`）
+   - Schedule: Weekly / Sunday / 00:00 UTC（= 日曜 09:00 JST）
+   - Repositories: `kit1132/01_ai-news-master`, `02_ai-news-copilot`, `03_ai-news-industry`, `04_ai-news-weekly` の 4 つすべて
+   - Primary: `kit1132/04_ai-news-weekly`
+   - Prompt: `CLAUDE.md に従って週次ダイジェストを生成し、Draft PR を提出してください。`
+4. 初回は `files.json` が `[]` の状態。最初の Run で先頭に追加される
+
+## セキュリティ上の注意
+
+- **GitHub Pages は常に Public 公開**: Private リポジトリでも Pages は外部からアクセス可能
+- **Routines の権限**: 4 リポ（入力 3 + 本リポ）への適切な read / write 権限を付与する
+- **入力リポへの書き込み禁止**: Routine 実行中に 01〜03 の `digests/` を変更しないこと（CLAUDE.md の不変条件）
