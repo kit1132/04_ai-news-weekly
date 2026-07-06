@@ -177,5 +177,5 @@
 - **[copilot] RSS 403の復旧・再発が継続**: mc.merill.net / Tech Community board / Qiita / devblogs.microsoftが7/2に一斉復旧後、7/4〜7/5に再び断続403。WebSearchフォールバックで対応継続。B-005（Qiita取得方法のWebSearch優先化提案、4回目）は「復旧と再発を繰り返すため提案の価値は残る」と再確認
 - **[industry] 全RSS/WebFetchが週を通じて403継続**: WebSearchで全件代替。B-004（`daily-sources.md`取得方法欄のWebSearch優先化提案）は今週で6回目の継続記録
 - **Fable 5復帰の速報タイミングにリポ間でズレ**: 7/1時点で[master][copilot]は「Pentagon/NSA署名待ちで停止継続」と記録したが、[industry]は同日中に商務省解除・グローバル復帰の一次情報を捕捉していた。内容自体に矛盾はなく、確認の速報性の差として記録
-- **[copilot] 重要リリースの取りこぼしが判明**: 新Copilot Studio発表（6/17）・Copilot Cowork GA（6/16）を7/2の「全ソースフル巡回」まで回収できていなかった。カバレッジ自己チェック（B-008）を初回実施し取りこぼしを回収。同様に[master]でもClaude Code v2.1.199/200を7/3時点で「新規なし」と誤記録し7/4に回収する事例があった
-- **Gemini研究者の移籍先情報にリポ間で表記のブレ**: [master]（7/4付）はNoam ShazeerのOpenAI移籍を記録する一方、他リポは6/26既報の「Shazeer/Jumper/Adler/PritzelのAnthropic流出」を継続参照するのみで、移籍方向の記述に整合を要確認
+- **[copilot] 重要リリースの取りこぼしが判明**: 新Copilot Studio発表（6/17）・Copilot Cowork GA（6/16）を7/2の「全ソースフル巡回」まで回収できていなかった。カバレッジ自己チェック（B-008）を初回実施し取りこぼしを回収。同じ[copilot]内で、Claude Code v2.1.199（7/2）・v2.1.200（7/3）およびGitHub Copilotの7/2付更新についても7/3時点の自リポダイジェストで「新リリースなし」と誤記録しており、7/4付ダイジェストで自己訂正・回収している（[master]側にはこの取りこぼしはなし）
+- **Gemini研究者の移籍先情報にリポ間で矛盾**: [industry]は6/30付で「Gemini中核研究者4名（Shazeer/Jumper/Adler/Pritzel）のAnthropic流出」と記録し週内も継続参照している一方、[master]は7/4付で「Noam ShazeerがOpenAIへ移籍」と報道。同一人物の移籍先について両リポで逆方向の情報が併存しており、一次ソースでの裏取りが必要
