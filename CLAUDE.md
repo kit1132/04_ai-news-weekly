@@ -10,7 +10,7 @@
 
 - `weekly/YYYY/week-WNN.md` — 週次サマリー本体（NN は ISO 週番号）
 - `.claude/commands/weekly-summary.md` — **生成手順の正本**（ルーチンはこのファイルに従う。フォーマット定義もここ）
-- `index.html` — サマリーの HTML ビューア（marked.js 使用、GitHub Pages で公開）
+- `index.html` — 統合ビューア（https://kit1132.github.io/01_ai-news-Master/ ）へのリダイレクト。実体は 01_ai-news-Master/index.html にある。**このファイルは編集不要**
 - `files.json` — ビューアが参照するファイル一覧（新しい順、パスはルートからの相対）
 - `.nojekyll` — GitHub Pages の Jekyll 処理を無効化
 

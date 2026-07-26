@@ -8,11 +8,11 @@
 - 入力 3 リポの `digests/{YYYY}/{MM}/ai-news-YYYY-MM-DD.md` 直近 7 日分を読み取り
 - カテゴリ別に統合・重複排除した Markdown 週次ダイジェストを `digests/{YYYY}/{MM}/ai-news-YYYY-MM-DD.md`（実行日の日曜日付）に生成
 - `claude/weekly-summary-YYYY-WNN` ブランチで Draft PR として提出
-- マージ後、GitHub Pages で `index.html` 経由で閲覧可能
+- push 後、[統合ビューア](https://kit1132.github.io/01_ai-news-Master/#weekly)で閲覧可能
 
 ## ビューア
 
-`index.html` を GitHub Pages で公開してダイジェスト一覧を閲覧する。`files.json` がダイジェストの一覧を保持し、生成のたびに先頭に追加される。
+閲覧は [統合ビューア](https://kit1132.github.io/01_ai-news-Master/#weekly) に一本化されている。実体は 01_ai-news-Master/index.html にあり、このリポの `index.html` はそこへのリダイレクトなので編集不要。`files.json` が週次サマリーの一覧を保持し、生成のたびに先頭に追加される（この形式はビューアが前提にしているため変更しないこと）。
 
 ## 入力リポジトリ
 
