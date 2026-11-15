@@ -6,7 +6,7 @@
 
 ### 1. Claude Fable 5.2 が $8 / $40 で出て、Claude Code・Copilot・Cowork に1週間で載った — 最上位モデルの試算単価と、5.1 からの API 移行の前提が変わった
 
-**要点**: Anthropic が 11/9 に Fable 5.2 を $8 / $40 で出し、5.1 比2割安になった。Claude Code・Copilot・Cowork に週内で載り、API では 5.1 からの移行で 400 になる変更が4つある。
+**要点**: Anthropic が 11/9 に Fable 5.2 を $8 / $40 で出し、5.1 より2割安い。Claude Code・Copilot・Cowork に載り、API では 5.1 からの移行で 400 になる変更が4つある。
 
 **詳細**: 1M コンテキスト・出力 128k・adaptive thinking 常時オンで、fast mode は $16 / $80。30日のデータ保持が必須で ZDR では使えない。
 
